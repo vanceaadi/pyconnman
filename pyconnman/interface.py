@@ -17,8 +17,7 @@ def translate_to_dbus_type(typeof, value):
     :return: 'value' converted to type 'typeof'
     :rtype: typeof
     """
-    if ((isinstance(value, types.UnicodeType) or
-         isinstance(value, str)) and typeof is not dbus.String):
+    if (isinstance(value, str) and typeof is not dbus.String):
         # FIXME: This is potentially dangerous since it evaluates
         # a string in-situ
         return typeof(eval(value))
